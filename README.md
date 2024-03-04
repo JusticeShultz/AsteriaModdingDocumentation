@@ -1,3 +1,3 @@
-# Asteria Modding Documentation - Created with Docsify
+# Asteria Modding Documentation
 
 ![Welcome to Asteria's Modding Documentation](./images/cover.jpg)
