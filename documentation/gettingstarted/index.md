@@ -18,7 +18,7 @@ Step 1: Install Unity v2023.1.12f1 from: https://unity.com/releases/editor/archi
 
 # Setup For Manual Updates:
 
-Step 2: Download the SDK package file from here: (GitHub release page)
+Step 2: Download the SDK package file from here: https://github.com/JusticeShultz/Asteria-Modding-SDK/releases
 
 Step 3: Create a new Unity project. Make sure you are creating this project with Unity v2023.1.12f1
 
@@ -35,7 +35,7 @@ Step 2: Create a new folder somewhere, such as your desktop, downloads folder, d
 
 Step 3: In that folder, right click it and press "Open Git Bash Here". If you do not see this option, confirm you installed Git. If you can only open Git Bash through your search menu, then open it and navigate to your newly created folder by doing "cd pathname".
 
-Step 4: Once Git Bash is open and is navigated to the folder, copy this command and: <b>right click > paste</b> it into the console: <code>git clone repolink</code>
+Step 4: Once Git Bash is open and is navigated to the folder, copy this command and: <b>right click > paste</b> it into the console: <code>git clone https://github.com/JusticeShultz/Asteria-Modding-SDK.git </code>
 
 Step 5: Open Unity Hub, press "Add" and find the folder you just pulled the project to. Open that folder and press "Open".
 
