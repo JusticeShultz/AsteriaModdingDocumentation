@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Classes</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>Classes are specializations that a player can choose. Classes give modifiers to the player when equipped.</p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create a Class</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Class</strong>.
+            </li>
+            <li>
+                After selecting "Class," give your class a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_ClassName</code>.
+            </li>
+        </ol>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Class Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Class Name</strong></td>
+                    <td>
+                        The name of the class.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Flavor Text</strong></td>
+                    <td>
+                        The description of the class. Generally contains information about what it provides/does.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Modified Stats</strong></td>
+                    <td>
+                        Modifiers applied while the class is equipped.
+                        <br>
+                        <a href="#" target="_blank">Read more about Modifiers here.</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

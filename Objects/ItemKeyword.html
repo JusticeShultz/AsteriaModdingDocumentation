@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Keywords</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Item Keywords</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>Item Keywords are an additive system to Items. This feature allows you to dynamically add modifiers to an item, altering it in a different way.</p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create an Item Keyword</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Item Keyword</strong>.
+            </li>
+            <li>
+                After selecting "Item Keyword," give your item keyword a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_ItemKeywordName</code>.
+            </li>
+        </ol>
+        <p>
+            Now that your item keyword is created, you can set up its data. Below, you'll find example item keywords and details about each piece of data that makes up an item keyword.
+        </p>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Item Keyword Examples</h2>
+        <hr>
+        <center><h4>Bonded</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_ItemKeywords_Bonded.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <hr>
+        <center><h4>Iron Fury</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_ItemKeywords_IronFury.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <hr>
+        <center><h4>Thundersoul</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_ItemKeywords_Thundersoul.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <hr>
+        <center><h4>Ghostblade</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_ItemKeywords_Ghostblade.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Keyword Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Keyword Title</strong></td>
+                    <td>The name of the keyword. This is placed in front of the items name. E.g. Dragonfire Greatsword where Dragonfire is the keyword name and Greatsword is the items base name.</td>
+                </tr>
+                <tr>
+                    <td><strong>Keyword Description</strong></td>
+                    <td>The tooltip of the keyword which appears within the items stat description.</td>
+                </tr>
+                <tr>
+                    <td><strong>Valid Item Types</strong></td>
+                    <td>
+                        The classification of items that can receive this keyword.<br>
+                        <a href="#" target="_blank">You can read about Items here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Silent Keyword Name</strong></td>
+                    <td>A simple flag to toggle whether the name of this keyword shows up before the base items name or not. For example "Dragonfire Greatsword" would become "Greatsword" but keep the effect of the Dragonfire keyword on it.</td>
+                </tr>
+                <tr>
+                    <td><strong>Silent Keyword Description</strong></td>
+                    <td>A simple flag to toggle whether the tooltip description appears within the items stats. Use this to put "secret" keywords onto items.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rarity Effect</strong></td>
+                    <td>The amount of rarity tiers to add to the item when this keyword is added. Leave at 0 to not add rarity. Make negative to remove rarity tiers.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Keyword Stats</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Stat Modifiers</strong></td>
+                    <td><a href="#" target="_blank">You can read about Modifiers here.</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Keyword Elements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Elemental Damage Increases</strong></td>
+                    <td>Allows you to add % boosts/decreases to a specified elements dealt damage output. 0.35 means 35%, 1 means 100%, -0.1 means -10% damage of that element.</td>
+                </tr>
+                <tr>
+                    <td><strong>Elemental Damage Conversions</strong></td>
+                    <td>Allows you to convert a % of dealt damage to the specified elements damage type. 0.35 means 35%, 1 means 100%.</td>
+                </tr>
+                <tr>
+                    <td><strong>Elemental Damage Resistances</strong></td>
+                    <td>Allows you to add a % resistance of the specified element, reducing that % of damage from that element dealt to you. Can be made negative to take more damage from that element. 0.35 means 35% reduced damage, 1 means 100% (no damage from that element), -0.1 means 10% more damage taken from that element.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Keyword Events</h2>
+        <a href="#" target="_blank">You can read about Usage Tags here.</a>
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>On Deal Physical Damage</strong></td>
+                    <td>The Usage Tags triggered when you deal physical damage.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><strong>On Deal Magic Damage</strong></td>
+                    <td>The Usage Tags triggered when you deal magic damage.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><strong>On Deal Any Damage</strong></td>
+                    <td>The Usage Tags triggered when you deal any damage.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><strong>On Take Physical Damage</strong></td>
+                    <td>The Usage Tags triggered when you take physical damage.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><strong>On Take Magic Damage</strong></td>
+                    <td>The Usage Tags triggered when you take magic damage.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><strong>On Take Any Damage</strong></td>
+                    <td>The Usage Tags triggered when you take any damage.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

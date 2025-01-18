@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #1db954;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Items</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>Items are pieces of data stored in the player's inventory. They can serve various purposes, such as being consumable, equippable, or offering other functionalities.</p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create an Item</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Item</strong>.
+            </li>
+            <li>
+                After selecting "Item," give your item a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_ItemName</code>.
+            </li>
+        </ol>
+        <p>
+            Now that your item is created, you can set up its data. Below, you'll find example items and details about each piece of data that makes up an item.
+        </p>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Item Examples</h2>
+        <hr>
+        <center><h4>Greater XP Potion</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Item_XP.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <hr>
+        <center><h4>Rusted Iron Sword</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Item_Sword.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <hr>
+        <center><h4>Basic Lockpick</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Item_BasicLockpick.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Basic Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Name of Item</strong></td>
+                    <td>The name of the item. This can be formatted with colors, animations, etc.</td>
+                </tr>
+                <tr>
+                    <td><strong>Flavor Text</strong></td>
+                    <td>This is the item's "description." It will appear in the dossier entry for the item.</td>
+                </tr>
+                <tr>
+                    <td><strong>Item Image ID</strong></td>
+                    <td>
+                        The addressable ID of the image used to represent the item. <br>
+                        <a href="#" target="_blank">Read about addressables here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Type of Item</strong></td>
+                    <td>The classification/functionality of this item. Although multi-selectable, you should generally choose only one type to avoid issues or overlapping functionalities.</td>
+                </tr>
+                <tr>
+                    <td><strong>Override Type of Item Text</strong></td>
+                    <td>If filled, this text will override the type displayed in the inventory. For example, "Brewing Ingredient" could indicate that the item is used for potion brewing. Leave blank if not needed.</td>
+                </tr>
+                <tr>
+                    <td><strong>Override Interaction Text</strong></td>
+                    <td>If filled, this text will replace the standard Equip/Consume button text. Useful for items that perform non-standard interactions (e.g., "Use" instead of "Consume").</td>
+                </tr>
+                <tr>
+                    <td><strong>Item Rarity</strong></td>
+                    <td>The base rarity of this item. The rarity can change later, but this sets the starting rarity (e.g., a common item might become legendary through keywords or other overrides).</td>
+                </tr>
+                <tr>
+                    <td><strong>Granted Skills</strong></td>
+                    <td>[Equipment Only] - Skills granted by equipping the item. These skills are ID-based (e.g., "Slash," "ToxicVolley") and are removed if the equipment is unequipped, unless they are learned permanently.</td>
+                </tr>
+                <tr>
+                    <td><strong>Effects List</strong></td>
+                    <td>A list of effects the item provides. For example: <p style="color:Tomato;">+25 Hunger</p>(Note: Some effects, like keyword effects or modifiers, may display automatically without manual entries in this list.)</td>
+                </tr>
+                <tr>
+                    <td><strong>Cached Data</strong></td>
+                    <td>
+                        Stores information about the item for other systems. For example, a "LockpickSpeed" entry might determine lockpick speed, while a "LockpickIcon" entry might store the associated image.<br>
+                        <a href="#" target="_blank">Read more about Cached Data here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Weapon Hand Size</strong></td>
+                    <td>[Weapons Only] - Can be set to One-Handed or Two-Handed. One-handed weapons can be equipped in either hand, while two-handed weapons occupy both weapon slots.</td>
+                </tr>
+                <tr>
+                    <td><strong>Quest Item</strong></td>
+                    <td>Flags the item as necessary for a quest, preventing it from being sold, crafted, or dropped.</td>
+                </tr>
+                <tr>
+                    <td><strong>Uses Cooldowns</strong></td>
+                    <td>
+                        Marks the item as using cooldowns. <br>
+                        When enabled, you must specify a "Cooldown Tag" and "Cooldown Length." <br>
+                        Items sharing the same Cooldown Tag will share the cooldown period. <br>
+                        (E.g., setting a "Potion" tag on potions would make all potions share the same cooldown.)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Uses Durability</strong></td>
+                    <td>
+                        Adds a durability value to the item. You can set a maximum durability, and the item can be repaired up to that maximum. <br>
+                        Note: For consumables, durability decreases per use. You can choose whether the stack is destroyed when durability reaches zero or allow a "broken" item to remain (e.g., bread consumed three times might disappear entirely instead of leaving a "broken bread" item).
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Can Be Used As Crafting Ingredient</strong></td>
+                    <td>Flags whether the item can be used in crafting systems like alchemy or woodworking. This flag is ignored if the item is marked as a quest item.</td>
+                </tr>
+                <tr>
+                    <td><strong>Item Can Stack</strong></td>
+                    <td>Specifies whether the item can stack. Equipment items cannot stack.</td>
+                </tr>
+                <tr>
+                    <td><strong>Item Weight</strong></td>
+                    <td>The item's weight in the player's inventory. Items exceeding the inventory weight limit cannot be added.</td>
+                </tr>
+                <tr>
+                    <td><strong>Override Level On Creation</strong></td>
+                    <td>Allows you to hard set the item's level. If left blank, the item's level will default to its creation settings.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Item Set Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Item Set Tag</strong></td>
+                    <td>The name of the items set that it belongs to.</td>
+                </tr>
+                <tr>
+                    <td><strong>Item Set Count Required</strong></td>
+                    <td>The amount of items needed to be equipped of the same Item Set Tag to grant this items set bonuses.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pre-Generated Set Modifier Stats</strong></td>
+                    <td>
+                        The modifiers granted when the set bonus is active.<br>
+                        <a href="#" target="_blank">Read more about Modifiers here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Set Granted Skills</strong></td>
+                    <td>
+                        The skills granted when the set bonus is active. When the set bonus becomes invalid the skill will be unequipped if not already learned.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Usage Tag Data</h2>
+        <a href="#" target="_blank">Read more about Usage Tags here.</a>
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>On Obtain</strong></td>
+                    <td>Triggers the given Usage Tags when the item is "obtained" (added to the players inventory).</td>
+                </tr>
+                <tr>
+                    <td><strong>On Equip</strong></td>
+                    <td>Triggers the given Usage Tags when the item is equipped to the player.</td>
+                </tr>
+                <tr>
+                    <td><strong>On Unequip</strong></td>
+                    <td>
+                        <b>NOTE: NOT IMPLEMENTED YET</b>
+                        <br>
+                        Triggers the given Usage Tags when the item is unequipped to the player.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>On Consume</strong></td>
+                    <td>Triggers the given Usage Tags when the item is consumed.</td>
+                </tr>
+                <tr>
+                    <td><strong>On Any Damage Taken</strong></td>
+                    <td>
+                        <b>NOTE: NOT IMPLEMENTED YET</b>
+                        <br>
+                        Triggers the given Usage Tags when the player takes damage. Only applies to equipped items.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>On Physical Damage Taken</strong></td>
+                    <td>
+                        <b>NOTE: NOT IMPLEMENTED YET</b>
+                        <br>
+                        Triggers the given Usage Tags when the player takes physical damage. Only applies to equipped items.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>On Magic Damage Taken</strong></td>
+                    <td>
+                        <b>NOTE: NOT IMPLEMENTED YET</b>
+                        <br>
+                        Triggers the given Usage Tags when the player takes magic damage. Only applies to equipped items.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>On Thrown Self</strong></td>
+                    <td>
+                        <b>Note: In-combat throwing system is still WIP and only triggered through usage tags right now without a proper target system.</b>
+                        <br>
+                        Triggers the given Usage Tags when the user throws the item at themselves.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>On Thrown Target</strong></td>
+                    <td>
+                        <b>Note: In-combat throwing system is still WIP and only triggered through usage tags right now without a proper target system.</b>
+                        <br>
+                        Triggers the given Usage Tags when the user throws the item at another target.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Economy</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Worth</strong></td>
+                    <td>The general worth/value of the item. This is the base value which is then modified based on variable factors per-merchant.</td>
+                </tr>
+                <tr>
+                    <td><strong>Volatility</strong></td>
+                    <td>
+                        The base price volatility of this item. When a volatility change happens the price will be modified by the - to + value of this range (by a random amount).
+                        <br>
+                        Example:
+                        <br>
+                        A volatility of 0.5 means that with each volatility change the items value will be changed between -50% & +50%. This could be -5%, or +26% value in the volatility change, this value is random between this range.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Max Volatility</strong></td>
+                    <td>The max volatility multiplier this item can go to. If an item has a max of 1.5 volatility, that means it can only ever get to be 150% more valuable.</td>
+                </tr>
+                <tr>
+                    <td><strong>Min Volatility</strong></td>
+                    <td>The minimum volatility multiplier this item can go down to. If an item has a minimum of 0.5 volatility, that means it can only ever get to be 50% less valuable (half as valuable).</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="section5" class="content">
+        <h2>Usage Requirements</h2>
+        <p>
+            The requirements this item must meet to be interacted with, consumed, equipped, etc.
+            <br>
+            <a href="#" target="_blank">Read more about Interaction Requirements here.</a>
+        </p>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Modifiers</h2>
+        <a href="#" target="_blank">Read more about Modifiers here.</a>
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pre-Generated Modifier Stats</strong></td>
+                    <td>The generative modifiers of this item. To understand modifiers better consider <a href="#" target="_blank">reading about modifiers.</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Max Keywords</strong></td>
+                    <td>The max amount of keywords this item can have, and the amount of chances that a keyword will generate for the item on creation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Keyword Chance</strong></td>
+                    <td>The % chance that a keyword is added to the item on creation. When this is set to 100, that means 100%. When set to 50, that's 50%. When set to 1.5, that's a 1.5% chance, etc. (1:1 % Ratio)</td>
+                </tr>
+                <tr>
+                    <td><strong>Keyword Modifies Rarity</strong></td>
+                    <td>A simple flag which can toggle whether keywords can modify the items rarity or not.</td>
+                </tr>
+                <tr>
+                    <td><strong>Keyword Blacklist</strong></td>
+                    <td>A list of keywords that cannot apply to this item. Due to how keywords are filtered, by default keywords which do not contain the same available type as this item will be auto-blacklisted.</td>
+                </tr>
+                <tr>
+                    <td><strong>Guaranteed Keywords</strong></td>
+                    <td>Keywords added to this item on its creation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Elemental Resistances</strong></td>
+                    <td>The elemental resistances provided by the item.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Repairs</h2>
+        <b>NOTE: NOT IMPLEMENTED YET</b>
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Repairable</strong></td>
+                    <td>If the item has a durability and this is checked it means that the durability of this item can be repaired.</td>
+                </tr>
+                <tr>
+                    <td><strong>Can Only Be Repaired By Pay</strong></td>
+                    <td>Makes it so that the item can only be repaired by a vendor for a paid amount.</td>
+                </tr>
+                <tr>
+                    <td><strong>Override Repair Cost</strong></td>
+                    <td>When repairing with a vendor this will set the price of that repair manually to the override value. Otherwise the repair cost is calculated based on the repair ingredients.</td>
+                </tr>
+                <tr>
+                    <td><strong>Low Cost Repair Recipe</strong></td>
+                    <td>The recipe used by a repair bench/blacksmith to make minor repairs to an unbroken item.</td>
+                </tr>
+                <tr>
+                    <td><strong>Medium Cost Repair Recipe</strong></td>
+                    <td>The recipe used by a repair bench/blacksmith to make medium repairs to an unbroken item.</td>
+                </tr>
+                <tr>
+                    <td><strong>Full Cost Repair Recipe</strong></td>
+                    <td>The recipe used by a repair bench/blacksmith to fix a broken item.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

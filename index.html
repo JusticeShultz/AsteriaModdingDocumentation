@@ -1,23 +1,219 @@
-<!-- index.html -->
-
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
-  <title>Asteria Modding Documentation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteria Modding SDK Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #1db954;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
 </head>
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      el: "#app",
-      repo: 'https://github.com/JusticeShultz/AsteriaModdingDocumentation',
-      loadSidebar: true
-    }
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <header>
+        <h1>Asteria Modding SDK</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">Content Creation ▾</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h3><i><u>Creating New Content</u></i></h3>
+                            <a href="#">Creating Characters</a>
+                            <a href="#">Creating Items</a>
+                            <a href="#">Creating Monsters</a>
+                            <a href="#">Creating Skills</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h3><i><u>Modifying Existing Content</u></i></h3>
+                            <a href="#">Modifying Game Mechanics</a>
+                            <a href="#">Asset Injection</a>
+                            <a href="#">Asset ID Database</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Resources ▾</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <a href="#">Usage Tags</a>
+                            <a href="#">Functions</a>
+                            <a href="#">Prefab Scripts</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#packaging">Packaging & Publishing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://playasteria.net/discord" target="_blank">Join our Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro" class="content">
+            <h2>Introduction</h2>
+            <p>Welcome to the Asteria Modding SDK! This documentation will guide you through the process of creating, modifying, and integrating custom content into Asteria. Whether you're adding new characters, items, abilities, or entire quests, this SDK provides the necessary tools and APIs.</p>
+        </section>
+        
+        <section id="getting-started" class="content">
+            <h2>Getting Started</h2>
+            <h3>Downloads</h2>
+            <ul>
+                <li>Unity Version: <a href="https://unity.com/releases/editor/archive" target="_blank"><em>6000.0.28f1</em></a></li>
+                <li>Asteria SDK Version: <a href="https://github.com/JusticeShultz/Asteria-Modding-SDK/releases" target="_blank"><em>Download Latest Version Here</em></a></li>
+            </ul>
+            <h3>Installing the SDK</h2>
+            <ul>
+                <li>Download the SDK from the official GitHub repository (latest release linked above).</li>
+                <li>Install the listed Unity version above. Once installed, create a new project in that version through the Unity Hub.</li>
+                <li>Once you have a fresh project, install the SDK by double clicking it/opening it within Unity. If you are new to Unity you can view how to import the SDK package <a href="https://docs.unity3d.com/560/Documentation/Manual/AssetPackages.html" target="_blank"><em>here</em></a>.</li>
+            </ul>
+            <h4><i>If you have modded a Unity game before:</i></h4>
+            <p><i>Please note that our current modding support is entirely based around scriptable objects and being friendly towards those without modding experience. Due to this, direct C# or code injection is not natively supported. To write your own code and make much more complicated systems without workaround solutions you will need to leverage a third party mod loading software for C# injection, decompilation and recompilation. Although not supported right now, with community support we may eventually make it a native feature.</i></p>
+        </section>
+        
+        <section id="modding-api" class="content">
+            <h2>Modding API Overview</h2>
+            <p>Asteria provides a couple modding interfaces you should be aware of:</p>
+            <ul>
+                <li>Scriptable Objects: Despite the name, you won't be doing any scripting. We use these objects to encapsulate all kinds of data to allow for modular asset creation. These objects will be essential for creating your own content and modifying existing content.</li>
+                <li>Asset Injection: When you add images, sound effects, and any other object it gets injected into the game through your mod. Whatever you name files is extremely important as that is treated as its ID. When you use the same name as an asset already used in the game it will override that data, allowing you to not only create new data, but modify existing game data.</li>
+            </ul>
+        </section>
+        
+        <section id="file-structure" class="content">
+            <h2>File Structure</h2>
+            <p>When developing a mod, your directory should be structured somewhat as follows:</p>
+            <pre><code>AsteriaMods/
+│── ModName/
+│   │── Data/
+│   │   ├── Sprites/
+│   │   │   ├── My_Character_Sprite_01
+│   │   │   ├── My_Character_Sprite_02
+│   │   │   ├── My_Character_Sprite_03
+│   │   │   ├── My_Character_Sprite_04
+│   │   ├── Characters/
+│   │   │   ├── MyCharacter
+│   │   ├── items/
+│   │   │   ├── MyItem_01
+│   │   │   ├── MyItem_02
+│   │   │   ├── MyItem_03
+│   │   ├── Audio/
+│   │   │   ├── Battle_Theme_01
+│   │── Mod Info/
+│   │   ├── Info_ModName</code></pre>
+            <p>This is only an example, and the file naming system is actually extremely lenient, but for organization and making it so other mod makers can account for your mod, you should name things in a way that isn't frustrating for others to use. There's also considerations to take into account, such as Windows max file name length, etc.</p>
+            <p>Make sure that you rename your mod info file as well as fill in its info. The mod info file gives your mod an identity which allows users of your mod to see the mod within their loaded mods list. If you delete the mod info file your mod will still load, but will not show in a users mod list, this can be used for libraries and other useful extension content for other mods.</p>
+            <p>Lastly, try not to use spaces within the names of files, with the exception of Character files. Use underscores (_) where possible.</p>
+        </section>
+        
+        <section id="creating-mods" class="content">
+            <h2>Creating Mod Content</h2>
+            <p>To create content you will need to create scriptable objects of the type of thing you want. Figure out what you want to make and then follow along with the documentation of that object linked below.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Object Type</th>
+                        <th>Documentation Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Characters</strong></td>
+                        <td><a href="#" target="_blank">Creating Characters</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Items</strong></td>
+                        <td><a href="#" target="_blank">Creating Items</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monsters</strong></td>
+                        <td><a href="#" target="_blank">Creating Monsters</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skills</strong></td>
+                        <td><a href="#" target="_blank">Creating Skills</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="scripting-api" class="content">
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="#" target="_blank">Usage Tag documentation</a></li>
+                <li><a href="#" target="_blank">Function documentation</a></li>
+                <li><a href="#" target="_blank">Scripts for prefabs</a></li>
+            </ul>
+        </section>
+        
+        <section id="packaging" class="content">
+            <h2>Packaging & Publishing</h2>
+            <p>Steps to prepare and share your mods coming soon...</p>
+        </section>
+        
+        <section id="faq" class="content">
+            <h2>FAQ</h2>
+            <p>Common issues and troubleshooting coming soon...</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
 </body>
 </html>

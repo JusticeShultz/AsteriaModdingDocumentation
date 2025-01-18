@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafting Recipes</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Crafting Recipes</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>Crafting Recipes are used for different crafting systems, such as rituals, cooking, alchemistry, smithing, enchanting and engineering. They determine what is crafted when the ingredients are put into that system.</p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create a Crafting Recipe</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Crafting Recipe</strong>.
+            </li>
+            <li>
+                After selecting "Crafting Recipe," give your crafting recipe a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_RecipeName</code>.
+            </li>
+        </ol>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Crafting Recipe Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Recipe Type</strong></td>
+                    <td>
+                        The system which this recipe is used with.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Recipes</strong></td>
+                    <td>
+                        A crafting recipe can have multiple recipes to produce the same result. Here you can setup your recipes by providing a list of [Item ID] and [Count] item entries.
+                        <br>
+                        Additionally you can set InteractionRequirement requirements for the recipe to succeed. You may also provide a "required station level" to require a higher level station to make the recipe.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Recipe Production</strong></td>
+                    <td>
+                        This is a simple list of [Item ID] and [Count] items. These represent the items created from the recipe. For more controlled item creation, use the Usage Tags system (e.g. giving an item of a set level).
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Recipe Production Usage Tags</strong></td>
+                    <td>
+                        You may setup usage tags on top of items produced so that you can have more complicated functionality (such as having a ritual which gives a direct temporary buff, a crafting recipe for a specific level item, etc).
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

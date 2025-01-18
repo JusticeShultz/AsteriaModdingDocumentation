@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Locations</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>
+            Locations are core pieces of data which contain areas within the game that hold encounters and various other things.
+        </p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create a Location</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Location</strong>.
+            </li>
+            <li>
+                After selecting "Location," give your location a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_LocationName</code>.
+            </li>
+        </ol>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Location Example</h2>
+        <hr>
+        <center><h4>Dryads Rest</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Locations_01.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Locations_02.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Locations_03.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Locations_04.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Basic Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Location Name</strong></td>
+                    <td>
+                        The name of the location.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Flavor Text</strong></td>
+                    <td>
+                        Lore or general information about the location which displays within the players dossier.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Location Type</strong></td>
+                    <td>
+                        Allows you to change some functionalities of how the location acts. Wilderness is the standard explorable type.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Music Tracks</strong></td>
+                    <td>
+                        The ID list of background music for the location.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Ambience Tracks</strong></td>
+                    <td>
+                        The ID list of ambient sound loops for the location.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Climate Type</strong></td>
+                    <td>
+                        The type of climate. Currently only affects the dossier.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Travelable Locations</strong></td>
+                    <td>
+                        The locations which you can travel to from here.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Travel To Injection IDs</strong></td>
+                    <td>
+                        Particularly useful for modders. This allows you to input other locations (e.g. DryadsRest) so that you can travel to this location from there, even if that location does not contain this one in their travelable ID list.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Possible Encounters</strong></td>
+                    <td>
+                        A list of IDs of the encounters which can be found here. Internally things like encounter weights, requirements, etc. are all factored in before anything from this list is chosen from.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Exploration Requirements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Exploration Requirements</strong></td>
+                    <td>
+                        Allows you to setup Interaction Requirements which are checked to determine if you are able to explore within this location or not. If the condition is not met then exploration is disabled in this location.
+                        <br>
+                        <a href="#" target="_blank">Read more about Interaction Requirements here.</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Locale Introduction</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Show Locale Swap Text</strong></td>
+                    <td>
+                        Allows you to display the locations name as a popup on screen when it's entered. Disabled by default.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Skilling</h2>
+        <p>Allows you to setup generic loot tables and regeneration times for foraging, mining and fishing. Note: these are values are for non-overriden background overlay objects.</p>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Weather</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tint Background To Time</strong></td>
+                    <td>
+                        This determines if the locations tint is affected by the time. You should disable this if you're in a cave for example.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>General Climate Min</strong></td>
+                    <td>
+                        The minimum temperature this location could ever reach. Note: All temperature is affected by the current season.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>General Climate Average</strong></td>
+                    <td>
+                        The average temperature that this location is. Note: All temperature is affected by the current season.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>General Climate Max</strong></td>
+                    <td>
+                        The maximum temperature this location could ever reach. Note: All temperature is affected by the current season.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Possible Weather</strong></td>
+                    <td>
+                        Allows you to configure all of the weather used within the location.
+                        <br>
+                        <br>
+                        You can view possible weather effect IDs here: <a href="#" target="_blank">Weather Effect ID Index</a>
+                        <br>
+                        <br>
+                        Duration length is in-game hours.
+                        <br>
+                        <br>
+                        The temperature range is determined by the locations current temperature.
+                        <br>
+                        <br>
+                        Weight controls how likely that weather is to occur (think raffle tickets in a raffle box, the more tickets in, the higher the chance from the others).
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Level</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Recommended Level</strong></td>
+                    <td>
+                        The base level that a player would be recommended to be when coming here.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Level Min</strong></td>
+                    <td>
+                        The minimum level content is under the recommendation.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Level Max</strong></td>
+                    <td>
+                        The maximum the level content is over the recommendation.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Background</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Background Image IDs</strong></td>
+                    <td>
+                        The addressable paths of images to use as backgrounds for this location. Backgrounds are randomly selected from this list.
+                        <br>
+                        <a href="#" target="_blank">Read more about Addressables here.</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

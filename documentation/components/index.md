@@ -1,1 +1,0 @@
-Components are currently not documented. Sorry about that! Please consider joining the Discord for modding help!

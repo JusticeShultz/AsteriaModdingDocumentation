@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Characters</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>
+            Characters are used for Dialogue to give speakers names and on screen portraits as well as stylize that characters text.
+        </p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create a Character</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Character</strong>.
+            </li>
+            <li>
+                After selecting "Character," give your character a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_CharacterName</code>.
+            </li>
+        </ol>
+        <br>
+        <p>To use this character, you will need to configure a dialogue. <a href="#" target="_blank">Read more about Dialogue here.</a></p>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Character Example</h2>
+        <hr>
+        <center><h4>Core</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Character01.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <hr>
+        <center><h4>Core - Style Tab</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Character02.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Character Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Conditional Character Name</strong></td>
+                    <td>
+                        A flag for marking if a character name should be dynamically set based on conditions (Interaction Requirements). If disbaled you can set a static name. When enabled you can add entries for what the characters name is. This lets you setup learning a name, adding nicknames, etc.
+                        <br>
+                        <a href="#" target="_blank">Read more about Interaction Requirements here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Character Icon ID</strong></td>
+                    <td>
+                        The addressable paths of portraits that the character uses.<br>
+                        <a href="#" target="_blank">Read more about Addressables here.</a>
+                        <br>
+                        <br>
+                        To swap between portraits set the "Character Pose" value on your dialogue under the character tab. The character icon index starts at 0, this means 0 = the top image, adding 1 to that Pose ID as you go down the entry list.<br>
+                        <a href="#" target="_blank">Read more about Dialogue here.</a>
+                        <br>
+                        <br>
+                        Note: This is not to be confused with the avatar system which handles complex animated characters and multiple characters on screen at once.
+                        <br>
+                        <a href="#" target="_blank">Read more about Avatars here.</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

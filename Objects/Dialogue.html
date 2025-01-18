@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialogue</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dialogue</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>
+            Dialogue is a major system that is used to communicate with characters and give player narration into what is happening.
+        </p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create a Dialogue</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; Dialogue</strong>.
+            </li>
+            <li>
+                After selecting "Dialogue," give your dialogue a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_DialogueName</code>.
+            </li>
+        </ol>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Dilaogue Example</h2>
+        <hr>
+        <center><h4>DryadsRest_MeetCore_Continued4 - Dialogue</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Dialogue_01.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+        <center><h4>DryadsRest_MeetCore_Continued4 - Character Example</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Dialogue_02.jpg" alt="Example Image 2" class="preview-image">
+            </div>
+        </div>
+        <center><h4>DryadsRest_MeetCore_Continued4 - Outcome Example</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_Dialogue_03.jpg" alt="Example Image 3" class="preview-image">
+            </div>
+        </div>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Dialogue Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tab</th>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dialogue</strong></td>
+                    <td><strong>Dialogue Text</strong></td>
+                    <td>
+                        The text to show within the text field shown in the dialogue box. This can be formatted and animated with markup tags.<br>
+                        <a href="#" target="_blank">You can read more about Markup here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Character</strong></td>
+                    <td><strong>Character ID</strong></td>
+                    <td>
+                        The ID/name of the character object to use with the dialogue. All characters must have a Character asset created for them, even if they do not use a portrait.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Character</strong></td>
+                    <td><strong>Character Pose</strong></td>
+                    <td>
+                        The pose to use from the characters list of portraits. 0 would imply you want to use the top-most image in the list on the character, increasing by 1 as you go down the image list.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Character</strong></td>
+                    <td><strong>Flip Character Pose</strong></td>
+                    <td>
+                        This will reverse the current portrait to be displayed to the screen based on the flag state. Leave unchecked to leave the same as the imported image.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Character</strong></td>
+                    <td><strong>Character Portrait Scale</strong></td>
+                    <td>
+                        The scale of the character portrait. This lets you get a better control over the scale of what is displaying on screen.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Character</strong></td>
+                    <td><strong>Character Avatars</strong></td>
+                    <td>
+                        The avatar system is a little complicated so it has its own documentation page.<br>
+                        <a href="#" target="_blank">You can read more about Avatars here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Type</strong></td>
+                    <td><strong>Dialogue Type</strong></td>
+                    <td>
+                        Normal Chat: Just a normal dialogue, nothing out of the ordinary.
+                        <br>
+                        <br>
+                        Branch: Still acts like a normal dialogue, but will not continue to the next dialogue when finished writing in and will instead show decisions which can be made.
+                        <br>
+                        <br>
+                        Reward: Used for giving rewards like loot, XP, etc. (May be removed and replaced with UsageTags entirely)
+                        <br>
+                        <br>
+                        Give Quest: Used to give a player a quest. (May be removed and replaced with UsageTags entirely)
+                        <br>
+                        <br>
+                        Conditional: Allows you to setup an Interaction Requirement and if it's true or false use a different dialogue for that entry.<br>
+                        <a href="#" target="_blank">You can read more about Interaction Requirements here.</a>
+                        <br>
+                        <br>
+                        Encounter: Used to start an Encounter. (May be removed and replaced with UsageTags entirely)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Swap To Location ID</strong></td>
+                    <td>
+                        May be removed and done through usage tags instead.
+                        <br>
+                        Simply swaps the location to the target ID.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Learn Location From Swap</strong></td>
+                    <td>
+                        May be removed and done through usage tags instead.
+                        <br>
+                        The player will discover the location if they haven't already discovered it if this is checked.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Only Learn With No Swap</strong></td>
+                    <td>
+                        May be removed and done through usage tags instead.
+                        <br>
+                        The player will discover the location if they haven't already discovered it if this is checked, but the location will not be swapped to it.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Story Flag</strong></td>
+                    <td>
+                        May be removed and done through usage tags instead.
+                        <br>
+                        Can be left blank. If filled with data then this will give the player the story flag from this dialogue.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Editor Event</strong></td>
+                    <td>
+                        Planned to be removed. Editor events are no longer necessary due to new systems taking their place.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Forces Conversation End</strong></td>
+                    <td>
+                        If this is toggled on then this dialogue will force the dialogue to end.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Triggered Usage Tags</strong></td>
+                    <td>
+                        The usage tags to execute when this dialogue is started.
+                        <br>
+                        <a href="#" target="_blank">You can read more about Usage Tags here.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Outcomes</strong></td>
+                    <td><strong>Hide Dialogue For Seconds</strong></td>
+                    <td>
+                        This will hide the dialogue window for the given amount of time. This is useful for playing cinematics or doing something with background overlays.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Audio</strong></td>
+                    <td><strong>VA Sound Effect</strong></td>
+                    <td>
+                        The ID of the sound effect/VA file you want played for the dialogue (if none, then leave as "DefaultDialogueSound").
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Audio</strong></td>
+                    <td><strong>Stop VA On Dialogue Fully Written</strong></td>
+                    <td>
+                        This will stop the VA when the dialogue is finished writing if checked on.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Transition</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Transition To After End ID</strong></td>
+                    <td>
+                        The dialogue (ID) to begin when this dialogue ends.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Localization</h2>
+        <p>Localization is fully integrated but is a complicated topic. For now we are holding off documenting this system as we may drastically change it, right now it is treated like a tool system and can be used, just expect that it will likely change in the future.</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>

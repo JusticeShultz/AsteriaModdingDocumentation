@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Movesets</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../scripts.js"></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .version {
+            display: block;
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                nav ul li a {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        color: #1db954;
+                    }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI Movesets</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <nav>
+            <ul>
+                <li><a href="https://justiceshultz.github.io/AsteriaModdingDocumentation/">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="intro" class="content">
+        <h2>Overview</h2>
+        <p>
+            AI Movesets allow you to create custom "orders" to enemy attacks. This allows you to create your own AIs rather than use the default built in smart AI.
+            <br>
+            <br>
+            It should be noted that the AI does exactly what you put in the order. If you do not setup cooldowns and requirements then the AI will just rapidly cast stuff regardless of mana/stamina (still taking into account windup/channel times).
+        </p>
+    </section>
+    <section id="intro" class="content">
+        <h2>How to Create an AI Moveset</h2>
+        <ol>
+            <li>
+                Right-click in the Project window of Unity, or go to the <strong>Asset</strong> menu at the top left.
+            </li>
+            <li>
+                Navigate to <strong>Create &gt; Asteria &gt; AI Moveset</strong>.
+            </li>
+            <li>
+                After selecting "AI Moveset," give your moveset a unique name (this refers to the asset in the project, not the name shown in the inspector).
+                To avoid conflicts with other mods, consider naming it something like <code>MyModName_AIMovesetName</code>.
+            </li>
+        </ol>
+        <br>
+        <p>To use this AI moveset, you will need to configure your Monster. <a href="#" target="_blank">Read more about Monsters here.</a></p>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>AI Moveset Example</h2>
+        <hr>
+        <center><h4>Fragmented Echo - Aggressive</h4></center>
+        <div class="image-container">
+            <div class="scrollable-square">
+                <img src="ObjectIMGs/Object_AIMoveset.jpg" alt="Example Image 1" class="preview-image">
+            </div>
+        </div>
+    </section>
+    <section id="creating-mods" class="content">
+        <h2>Moveset Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Moveset</strong></td>
+                    <td>
+                        The moves that this AI makes within this set. The AI will follow in the order of top to bottom. Moveset requirements + individual requirements must be met for the move to be used. The AI will pause while on cooldown (from the Cooldown Period variable). If you toggle off Pause Until Requirement Met then the AI will skip that move and go to the next one if the requirement wasn't met, this can be used for charged abilities, powering up, etc.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Moveset Requirement</strong></td>
+                    <td>
+                        The requirements needed to use this moveset.<br>
+                        <a href="#" target="_blank">Read more about Interaction Requirements here.</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2025 Tabularis Games. All rights reserved.</p>
+    </footer>
+</body>
+</html>
