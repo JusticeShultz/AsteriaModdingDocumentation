@@ -64,8 +64,8 @@
 </head>
 <body>
     <header>
-        <h1>Asteria Modding SDK</h1>
-        <p class="version">Version 1.0 | Last Updated: 2025-01-15</p>
+        <h1>Asteria Modding SDK Documentation</h1>
+        <p class="version">Version 1.0 | Last Updated: 2025-01-18</p>
         <nav>
             <ul>
                 <li class="dropdown">
@@ -73,26 +73,17 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-column">
                             <h3><i><u>Creating New Content</u></i></h3>
-                            <a href="#">Creating Characters</a>
-                            <a href="#">Creating Items</a>
-                            <a href="#">Creating Monsters</a>
-                            <a href="#">Creating Skills</a>
+                            <a href="#creating-mods"><u>All Object Types</u></a>
+                            <a href="Objects/Dialogue.html">Creating Dialogue</a>
+                            <a href="Objects/Encounter.html">Creating Encounters</a>
+                            <a href="Objects/Location.html">Creating Locations</a>
                         </div>
                         <div class="dropdown-column">
-                            <h3><i><u>Modifying Existing Content</u></i></h3>
-                            <a href="#">Modifying Game Mechanics</a>
-                            <a href="#">Asset Injection</a>
-                            <a href="#">Asset ID Database</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Resources ▾</a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-column">
-                            <a href="#">Usage Tags</a>
-                            <a href="#">Functions</a>
-                            <a href="#">Prefab Scripts</a>
+                            <h3><i><u>Complex Systems</u></i></h3>
+                            <a href="#complex-features"><u>All System Types</u></a>
+                            <a href="Objects/UsageTag.html">Usage Tags</a>
+                            <a href="Objects/InteractionRequirement.html">Interaction Requirements</a>
+                            <a href="Objects/Addressable.html">Addressables</a>
                         </div>
                     </div>
                 </li>
@@ -108,15 +99,15 @@
             <h2>Introduction</h2>
             <p>Welcome to the Asteria Modding SDK! This documentation will guide you through the process of creating, modifying, and integrating custom content into Asteria. Whether you're adding new characters, items, abilities, or entire quests, this SDK provides the necessary tools and APIs.</p>
         </section>
-        
+
         <section id="getting-started" class="content">
             <h2>Getting Started</h2>
-            <h3>Downloads</h2>
+            <h3>Downloads</h3>
             <ul>
                 <li>Unity Version: <a href="https://unity.com/releases/editor/archive" target="_blank"><em>6000.0.28f1</em></a></li>
                 <li>Asteria SDK Version: <a href="https://github.com/JusticeShultz/Asteria-Modding-SDK/releases" target="_blank"><em>Download Latest Version Here</em></a></li>
             </ul>
-            <h3>Installing the SDK</h2>
+            <h3>Installing the SDK</h3>
             <ul>
                 <li>Download the SDK from the official GitHub repository (latest release linked above).</li>
                 <li>Install the listed Unity version above. Once installed, create a new project in that version through the Unity Hub.</li>
@@ -125,7 +116,7 @@
             <h4><i>If you have modded a Unity game before:</i></h4>
             <p><i>Please note that our current modding support is entirely based around scriptable objects and being friendly towards those without modding experience. Due to this, direct C# or code injection is not natively supported. To write your own code and make much more complicated systems without workaround solutions you will need to leverage a third party mod loading software for C# injection, decompilation and recompilation. Although not supported right now, with community support we may eventually make it a native feature.</i></p>
         </section>
-        
+
         <section id="modding-api" class="content">
             <h2>Modding API Overview</h2>
             <p>Asteria provides a couple modding interfaces you should be aware of:</p>
@@ -134,7 +125,7 @@
                 <li>Asset Injection: When you add images, sound effects, and any other object it gets injected into the game through your mod. Whatever you name files is extremely important as that is treated as its ID. When you use the same name as an asset already used in the game it will override that data, allowing you to not only create new data, but modify existing game data.</li>
             </ul>
         </section>
-        
+
         <section id="file-structure" class="content">
             <h2>File Structure</h2>
             <p>When developing a mod, your directory should be structured somewhat as follows:</p>
@@ -160,7 +151,7 @@
             <p>Make sure that you rename your mod info file as well as fill in its info. The mod info file gives your mod an identity which allows users of your mod to see the mod within their loaded mods list. If you delete the mod info file your mod will still load, but will not show in a users mod list, this can be used for libraries and other useful extension content for other mods.</p>
             <p>Lastly, try not to use spaces within the names of files, with the exception of Character files. Use underscores (_) where possible.</p>
         </section>
-        
+
         <section id="creating-mods" class="content">
             <h2>Creating Mod Content</h2>
             <p>To create content you will need to create scriptable objects of the type of thing you want. Figure out what you want to make and then follow along with the documentation of that object linked below.</p>
@@ -173,39 +164,156 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Characters</strong></td>
-                        <td><a href="#" target="_blank">Creating Characters</a></td>
+                        <td><strong>AI Moveset</strong></td>
+                        <td><a href="Objects/AIMoveset.html" target="_blank">Creating AI Movesets</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Items</strong></td>
-                        <td><a href="#" target="_blank">Creating Items</a></td>
+                        <td><strong>Background Overlay</strong></td>
+                        <td><a href="Objects/BackgroundOverlay.html" target="_blank">Creating Background Overlays</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Monsters</strong></td>
-                        <td><a href="#" target="_blank">Creating Monsters</a></td>
+                        <td><strong>Character</strong></td>
+                        <td><a href="Objects/Character.html" target="_blank">Creating Characters</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Skills</strong></td>
-                        <td><a href="#" target="_blank">Creating Skills</a></td>
+                        <td><strong>Character Feature</strong></td>
+                        <td><a href="Objects/CharacterFeature.html" target="_blank">Creating Character Feature</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Class</strong></td>
+                        <td><a href="Objects/Class.html" target="_blank">Creating Classes</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content Bundle</strong></td>
+                        <td><a href="Objects/ContentBundle.html" target="_blank">Creating Content Bundles</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Crafting Recipe</strong></td>
+                        <td><a href="Objects/CraftingRecipe.html" target="_blank">Creating Crafting Recipes</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dialogue</strong></td>
+                        <td><a href="Objects/Dialogue.html" target="_blank">Creating Dialogues</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dungeon</strong></td>
+                        <td><a href="Objects/Dungeon.html" target="_blank">Creating Dungeons</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Encounter</strong></td>
+                        <td><a href="Objects/Encounter.html" target="_blank">Creating Encounters</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item</strong></td>
+                        <td><a href="Objects/Item.html" target="_blank">Creating Items</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Item Keyword</strong></td>
+                        <td><a href="Objects/ItemKeyword.html" target="_blank">Creating Item Keywords</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Language</strong></td>
+                        <td><a href="Objects/Language.html" target="_blank">Creating Languages</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Localization String</strong></td>
+                        <td><a href="Objects/LocalizationString.html" target="_blank">Creating Localization Strings</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Localization Table</strong></td>
+                        <td><a href="Objects/LocalizationTable.html" target="_blank">Creating Localization Tables</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Location</strong></td>
+                        <td><a href="Objects/Location.html" target="_blank">Creating Locations</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Loot Pool</strong></td>
+                        <td><a href="Objects/LootPool.html" target="_blank">Creating Loot Pools</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magical Element</strong></td>
+                        <td><a href="Objects/MagicalElement.html" target="_blank">Creating Magical Elements</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Merchant</strong></td>
+                        <td><a href="Objects/Merchant.html" target="_blank">Creating Merchants</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monster</strong></td>
+                        <td><a href="Objects/Monster.html" target="_blank">Creating Monsters</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quest</strong></td>
+                        <td><a href="Objects/Quest.html" target="_blank">Creating Quests</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skill</strong></td>
+                        <td><a href="Objects/Skill.html" target="_blank">Creating Skills</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status Effect</strong></td>
+                        <td><a href="Objects/StatusEffect.html" target="_blank">Creating Status Effects</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit Balance</strong></td>
+                        <td><a href="Objects/UnitBalance.html" target="_blank">Creating Unit Balances</a></td>
                     </tr>
                 </tbody>
             </table>
         </section>
-        
-        <section id="scripting-api" class="content">
-            <h2>Resources</h2>
-            <ul>
-                <li><a href="#" target="_blank">Usage Tag documentation</a></li>
-                <li><a href="#" target="_blank">Function documentation</a></li>
-                <li><a href="#" target="_blank">Scripts for prefabs</a></li>
-            </ul>
+
+        <section id="complex-features" class="content">
+            <h2>Complex Systems</h2>
+            <p>These systems hold a lot of the complexity around creating a dynamic and modular framework for our game. Understanding these different elements will help you significantly with working with our systems.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Documentation Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Addressables</strong></td>
+                        <td><a href="Objects/Addressable.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interaction Requirements</strong></td>
+                        <td><a href="Objects/InteractionRequirement.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Usage Tags</strong></td>
+                        <td><a href="Objects/UsageTag.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Functions</strong></td>
+                        <td><a href="Objects/Function.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modifiers</strong></td>
+                        <td><a href="Objects/Modifier.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avatars</strong></td>
+                        <td><a href="Objects/Avatar.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weather</strong></td>
+                        <td><a href="Objects/Weather.html" target="_blank">Link</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prefabs</strong></td>
+                        <td><a href="Objects/Prefab.html" target="_blank">Link</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
-        
         <section id="packaging" class="content">
             <h2>Packaging & Publishing</h2>
             <p>Steps to prepare and share your mods coming soon...</p>
         </section>
-        
+
         <section id="faq" class="content">
             <h2>FAQ</h2>
             <p>Common issues and troubleshooting coming soon...</p>
